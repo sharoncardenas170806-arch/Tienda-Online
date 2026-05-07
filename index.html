@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+
+    <!-- Diseño responsive para dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tienda Online</title>
+
+    <!-- Archivo CSS principal -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Librería de iconos -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER:
+         Contiene el título principal, navegación y acceso al carrito -->
+    <header>
+
+        <h1>Tienda Online</h1>
+
+        <p>Los mejores productos tecnológicos</p>
+
+        <!-- NAV:
+             Menú de navegación principal -->
+        <nav>
+
+            <a href="#" onclick="mostrarProductos()">
+                Productos
+            </a>
+
+            <a href="#" onclick="mostrarFormulario()">
+                Comprar
+            </a>
+
+        </nav>
+
+        <!-- BOTÓN DEL CARRITO:
+             Uso de aria-label para accesibilidad -->
+        <button class="carrito-icono"
+            onclick="abrirCarrito()"
+            aria-label="Abrir carrito de compras">
+
+            🛒 <span id="contador">0</span>
+
+        </button>
+
+    </header>
+
+    <!-- MAIN:
+         Contenido principal de la página -->
+    <main>
+
+        <!-- SECTION:
+             Área de productos disponibles -->
+        <section class="card" id="productos">
+
+            <h2>Nuestros Productos</h2>
+
+            <!-- Contenedor grid para organizar productos -->
+            <div class="productos-grid">
+
+                <!-- ARTICLE:
+                     Producto 1 -->
+                <article class="producto">
+
+                    <!-- Imagen accesible con atributo alt -->
+                    <img src="assets/producto1.jpg"
+                        alt="Audífonos Bluetooth">
+
+                    <h3>Audífonos Bluetooth</h3>
+
+                    <p>
+                        Sonido envolvente y batería de larga duración.
+                    </p>
+
+                    <!-- Lista de características -->
+                    <ul>
+                        <li>Bluetooth 5.0</li>
+                        <li>Batería de 20 horas</li>
+                        <li>Micrófono integrado</li>
+                    </ul>
+
+                    <h4>$120.000</h4>
+
+                    <!-- Barras visuales -->
+                    <div class="skill-bar">
+
+                        <p>Batería</p>
+
+                        <div class="barra">
+                            <div class="progreso"
+                                style="width:90%; background:#4cc9f0;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <p>Sonido</p>
+
+                        <div class="barra">
+                            <div class="progreso"
+                                style="width:95%; background:#7209b7;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Botón accesible -->
+                    <button
+                        onclick="agregarCarrito('Audífonos Bluetooth')"
+                        aria-label="Agregar Audífonos Bluetooth al carrito">
+
+                        Comprar
+
+                    </button>
+
+                </article>
+
+                <!-- PRODUCTO 2 -->
+                <article class="producto">
+
+                    <img src="assets/producto2.jpg"
+                        alt="Smartwatch">
+
+                    <h3>Smartwatch</h3>
+
+                    <p>
+                        Controla tu actividad física y notificaciones.
+                    </p>
+
+                    <ul>
+                        <li>Pantalla táctil</li>
+                        <li>Monitoreo cardíaco</li>
+                        <li>Resistente al agua</li>
+                    </ul>
+
+                    <h4>$250.000</h4>
+
+                    <div class="skill-bar">
+
+                        <p>Batería</p>
+
+                        <div class="barra">
+                            <div class="progreso"
+                                style="width:80%; background:#f72585;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <p>Funciones</p>
+
+                        <div class="barra">
+                            <div class="progreso"
+                                style="width:92%; background:#4cc9f0;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button
+                        onclick="agregarCarrito('Smartwatch')"
+                        aria-label="Agregar Smartwatch al carrito">
+
+                        Comprar
+
+                    </button>
+
+                </article>
+
+                <!-- PRODUCTO 3 -->
+                <article class="producto">
+
+                    <img src="assets/producto3.jpg"
+                        alt="Mouse Gamer">
+
+                    <h3>Mouse Gamer</h3>
+
+                    <p>
+                        Precisión avanzada para gaming profesional.
+                    </p>
+
+                    <ul>
+                        <li>RGB personalizable</li>
+                        <li>Alta precisión</li>
+                        <li>Diseño ergonómico</li>
+                    </ul>
+
+                    <h4>$80.000</h4>
+
+                    <div class="skill-bar">
+
+                        <p>Precisión</p>
+
+                        <div class="barra">
+                            <div class="progreso"
+                                style="width:97%; background:#7209b7;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="skill-bar">
+
+                        <p>Velocidad</p>
+
+                        <div class="barra">
+                            <div class="progreso"
+                                style="width:88%; background:#4cc9f0;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button
+                        onclick="agregarCarrito('Mouse Gamer')"
+                        aria-label="Agregar Mouse Gamer al carrito">
+
+                        Comprar
+
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- SECTION:
+             Formulario de compra -->
+        <section class="card"
+            id="formulario-compra"
+            style="display:none;">
+
+            <h2>Finalizar compra</h2>
+
+            <!-- FORM:
+                 Formulario accesible con labels -->
+            <form>
+
+                <label for="nombre">
+                    Nombre completo
+                </label>
+
+                <input type="text"
+                    id="nombre"
+                    placeholder="Nombre completo">
+
+                <label for="correo">
+                    Correo electrónico
+                </label>
+
+                <input type="email"
+                    id="correo"
+                    placeholder="Correo electrónico">
+
+                <label for="direccion">
+                    Dirección de envío
+                </label>
+
+                <input type="text"
+                    id="direccion"
+                    placeholder="Dirección de envío">
+
+                <button
+                    type="button"
+                    onclick="validarCompra()"
+                    aria-label="Confirmar compra">
+
+                    Confirmar compra
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER:
+         Información final de la página -->
+    <footer>
+
+        <p>© 2026 - Sharon Cárdenas</p>
+
+    </footer>
+
+    <!-- MODAL DEL CARRITO -->
+    <div id="carrito" class="carrito">
+
+        <h2>Carrito</h2>
+
+        <ul id="lista-carrito"></ul>
+
+        <h3 id="total-carrito">
+            Total: $0
+        </h3>
+
+        <button onclick="irAComprar()">
+            Ir a comprar
+        </button>
+
+        <button onclick="cerrarCarrito()">
+            Cerrar
+        </button>
+
+    </div>
+
+    <!-- SCRIPT:
+         Funciones de carrito y validación -->
+    <script>
+
+        let carrito = [];
+
+        let precios = {
+            "Audífonos Bluetooth": 120000,
+            "Smartwatch": 250000,
+            "Mouse Gamer": 80000
+        };
+
+        // Agrega productos al carrito
+        function agregarCarrito(producto) {
+
+            carrito.push(producto);
+
+            document.getElementById("contador").textContent = carrito.length;
+
+            alert(producto + " agregado al carrito 🛒");
+        }
+
+        // Abre el carrito
+        function abrirCarrito() {
+
+            document.getElementById("carrito").style.display = "block";
+
+            let lista = document.getElementById("lista-carrito");
+
+            let total = 0;
+
+            lista.innerHTML = "";
+
+            if (carrito.length === 0) {
+
+                lista.innerHTML = "<li>No hay productos</li>";
+
+            } else {
+
+                carrito.forEach(producto => {
+
+                    lista.innerHTML += `
+                        <li>
+                            ${producto} - $${precios[producto].toLocaleString()}
+                        </li>
+                    `;
+
+                    total += precios[producto];
+                });
+            }
+
+            document.getElementById("total-carrito").textContent =
+                "Total: $" + total.toLocaleString();
+        }
+
+        // Cierra el carrito
+        function cerrarCarrito() {
+
+            document.getElementById("carrito").style.display = "none";
+        }
+
+        // Mostrar productos
+        function mostrarProductos() {
+
+            document.getElementById("productos").style.display = "block";
+
+            document.getElementById("formulario-compra").style.display = "none";
+        }
+
+        // Mostrar formulario
+        function mostrarFormulario() {
+
+            document.getElementById("productos").style.display = "none";
+
+            document.getElementById("formulario-compra").style.display = "block";
+        }
+
+        // Ir al formulario desde carrito
+        function irAComprar() {
+
+            cerrarCarrito();
+
+            document.getElementById("productos").style.display = "none";
+
+            document.getElementById("formulario-compra").style.display = "block";
+        }
+
+        // Validar formulario
+        function validarCompra() {
+
+            let nombre =
+                document.getElementById("nombre").value.trim();
+
+            let correo =
+                document.getElementById("correo").value.trim();
+
+            let direccion =
+                document.getElementById("direccion").value.trim();
+
+            if (
+                nombre === "" ||
+                correo === "" ||
+                direccion === ""
+            ) {
+
+                alert("⚠️ Debes completar todos los campos");
+
+                return;
+            }
+
+            finalizarCompra();
+        }
+
+        // Finalizar compra
+        function finalizarCompra() {
+
+            alert("🎉 Compra realizada con éxito");
+
+            carrito = [];
+
+            document.getElementById("contador").textContent = 0;
+
+            document.getElementById("nombre").value = "";
+
+            document.getElementById("correo").value = "";
+
+            document.getElementById("direccion").value = "";
+
+            document.getElementById("formulario-compra").style.display = "none";
+
+            document.getElementById("productos").style.display = "block";
+        }
+
+    </script>
+
+</body>
+
+</html>
